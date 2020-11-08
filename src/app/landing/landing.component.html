@@ -41,10 +41,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Akan Name</td>
-                                <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                                    Ut, excepturi?</td>
+                            <tr *ngFor='let repo of repos'>
+                                <td>{{repo.repoName}}</td>
+                                <td>{{repo.description}}</td>
                             </tr>
                         </tbody>
                     </table>

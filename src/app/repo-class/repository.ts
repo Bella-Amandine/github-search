@@ -1,4 +1,4 @@
 export class Repository {
-    repoName: string;
-    description: string;
+    
+    constructor(public repoName: string, public description: string){}
 }

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { User } from '../user-class/user';
 import { UserService } from '../user-service/user.service';
+import { RepositoryService } from '../repo-service/repository.service';
+import { Repository } from '../repo-class/repository';
 
 @Component({
   selector: 'app-landing',
@@ -10,12 +12,15 @@ import { UserService } from '../user-service/user.service';
 export class LandingComponent implements OnInit {
 
   user: User;
+  repos = [];
 
-  constructor(private userService: UserService) {  }
+  constructor(private userService: UserService, private repoService: RepositoryService) {  }
 
   ngOnInit(): void {
     this.userService.getUser("bella-amandine");
     this.user = this.userService.user;
+    this.repoService.getRepos("bella-amandine");
+    this.repos = this.repoService.repositories;
   }
 
 }
