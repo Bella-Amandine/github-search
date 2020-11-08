@@ -1,4 +1,3 @@
 export class User {
-    username: string;
-    profilePic: string;
+    constructor(public username: string, public profilePic: string) {}
 }
