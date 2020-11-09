@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandingComponent } from './landing/landing.component';
 import { HighlightDescriptionDirective } from './highlight-description.directive';
+import { SplitDashPipe } from './split-dash.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LandingComponent,
-    HighlightDescriptionDirective
+    HighlightDescriptionDirective,
+    SplitDashPipe
   ],
   imports: [
     BrowserModule,

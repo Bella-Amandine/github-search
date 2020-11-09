@@ -32,7 +32,6 @@ export class LandingComponent implements OnInit {
     else {
       this.isHighlight = true;
     }
-
     return this.isHighlight;
   }
 
