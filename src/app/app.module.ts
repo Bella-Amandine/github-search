@@ -10,6 +10,7 @@ import { LandingComponent } from './landing/landing.component';
 import { HighlightDescriptionDirective } from './highlight-description.directive';
 import { SplitDashPipe } from './split-dash.pipe';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { RepositoryComponent } from './repository/repository.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SearchFormComponent } from './search-form/search-form.component';
     LandingComponent,
     HighlightDescriptionDirective,
     SplitDashPipe,
-    SearchFormComponent
+    SearchFormComponent,
+    RepositoryComponent
   ],
   imports: [
     BrowserModule,

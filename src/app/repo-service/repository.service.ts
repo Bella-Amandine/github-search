@@ -14,6 +14,7 @@ export class RepositoryService {
 
   constructor(private http: HttpClient) {
     this.repo = new Repository("", "");
+    this.repositories = [];
    }
 
    getRepos(username) {
@@ -24,9 +25,13 @@ export class RepositoryService {
      let promise = new Promise((resolve, reject) => {
       this.http.get<ApiResponse[]>(`https://api.github.com/users/${username}/repos?access_token=${environment.myGithubToken}`).toPromise().then(response => {
 
+      let index = 0;
+
       for(let data of response) {
-        this.repositories.push(new Repository(data.name, data.description));
+        this.repositories[index] = new Repository(data.name, data.description);
+        index ++;
       }
+
         resolve();
  
       }, error => {
@@ -34,6 +39,6 @@ export class RepositoryService {
       })
      });
 
-     return this.repositories;
+     return promise;
    }
 }

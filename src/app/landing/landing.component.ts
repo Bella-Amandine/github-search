@@ -17,44 +17,22 @@ export class LandingComponent implements OnInit {
   githubUsername: string = "bella-amandine";
 
   constructor(private userService: UserService, private repoService: RepositoryService) { 
-    console.log("call constructor");
   }
 
   getUsernameToSearch(username){
     this.githubUsername = username;
-    this.repos = [];
     this.userService.getUser(this.githubUsername);
     this.repoService.getRepos(this.githubUsername);
-  }
-
-  ngDoCheck() {
-    
     this.user = this.userService.user;
-    // this.repos = this.repoService.repositories;
+    this.repos = this.repoService.repositories;
   }
 
-  // ngAfterContentInit() {
-  //   console.log("call on after content init");
-  // }
-
-  // ngAfterContentChecked() {
-  //   console.log("call on after checked");
-  // }
-
-  // ngAfterViewInit() {
-  //   console.log("call on after vieu init");
-  // }
-
-  // ngAfterViewChecked() {
-  //   console.log("call on after vieu checked");
-  // }
 
   ngOnInit(): void {
-      console.log("call on init")
-      this.userService.getUser(this.githubUsername);
-      this.user = this.userService.user;
-      this.repoService.getRepos(this.githubUsername);
-      this.repos = this.repoService.repositories;
+    this.userService.getUser(this.githubUsername);
+    this.user = this.userService.user;
+    this.repoService.getRepos(this.githubUsername);
+    this.repos = this.repoService.repositories;
   }
 
 
