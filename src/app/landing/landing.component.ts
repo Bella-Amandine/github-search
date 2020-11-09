@@ -13,14 +13,27 @@ export class LandingComponent implements OnInit {
 
   user: User;
   repos = [];
+  isHighlight: boolean = true;
 
   constructor(private userService: UserService, private repoService: RepositoryService) {  }
+
 
   ngOnInit(): void {
     this.userService.getUser("bella-amandine");
     this.user = this.userService.user;
     this.repoService.getRepos("bella-amandine");
     this.repos = this.repoService.repositories;
+  }
+
+  checkDescription(repo) {
+    if(repo.description === null) {
+      this.isHighlight = false;
+    }
+    else {
+      this.isHighlight = true;
+    }
+
+    return this.isHighlight;
   }
 
 }

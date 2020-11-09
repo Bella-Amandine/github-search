@@ -43,7 +43,10 @@
                         <tbody>
                             <tr *ngFor='let repo of repos'>
                                 <td>{{repo.repoName}}</td>
-                                <td>{{repo.description}}</td>
+                                <td >
+                                    <span appHighlightDescription *ngIf="checkDescription(repo); else condition1">{{repo.description}}</span>
+                                    <ng-template #condition1>No Description for this repo</ng-template>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
